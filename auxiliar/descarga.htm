@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Respuestas</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+-->
+</style>
+<style type="text/css">
+<!--
+-->
+</style>
+<script type="text/javascript">
+      window.addEventListener("message", funcionQueManejaLosMensajes)
+      function funcionQueManejaLosMensajes(evt) {
+         var data = evt.data;
+
+          // se maneja un mensaje del tipo set
+		 if ((data.type === "set")&&(data.name==="r1")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rn1").value = data.value;
+			
+         }
+		  else if ((data.type === "set")&&(data.name==="c1")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rc1").value = data.value;
+			
+         }
+		 else if ((data.type === "set")&&(data.name==="nn21")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rn21").value = data.value;
+			
+         }
+		 else if ((data.type === "set")&&(data.name==="nn22")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rn22").value = data.value;
+			
+         }
+		 else if ((data.type === "set")&&(data.name==="c2")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rc2").value = data.value;
+			
+         }
+		 else if ((data.type === "set")&&(data.name==="nn31")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rn31").value = data.value;
+			
+         }
+		 else if ((data.type === "set")&&(data.name==="nn32")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rn32").value = data.value;
+			
+         }
+		 else if ((data.type === "set")&&(data.name==="c3")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rc3").value = data.value;
+			
+         }
+		 else if ((data.type === "set")&&(data.name==="r4")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rn4").value = data.value;
+			
+         }
+		 else if ((data.type === "set")&&(data.name==="c4")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rc4").value = data.value;
+			
+         }
+		 else if ((data.type === "set")&&(data.name==="r5")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rn5").value = data.value;
+			
+         }
+		 else if ((data.type === "set")&&(data.name==="c5")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("rc5").value = data.value;
+			
+         }
+
+         
+		 
+      }
+   </script>
+<script language="JavaScript" type="text/JavaScript">
+function validar(){
+    var sw_error = 0;
+		var err;
+		if (cs600.alumno.value == "Escribe tu nombre y apellidos" || !cs600.alumno.value || cs600.alumno.value == " "){
+		   if(err){
+			    err = err + "\n\n - Debes introducir tu nombre y apellidos";
+			 }else{
+			    err = " - Debes introducir tu nombre y apellidos";
+			 }
+       cs600.alumno.focus();
+		}
+
+//		var email = cs600.email.value;
+//		
+//		if(!isEmailAddress(email)){
+//			if(err){
+//				err = err + "\n\n - Debes introducir una direcci\u00f3n de correo electr\u00f3nico v\u00e1lida";
+//			}else{
+//				err = " - Debes introducir una direcci\u00f3n de correo electr\u00f3nico válida";
+//			}
+//		} 
+		
+		if(err){
+			alert(err+"\n\n");
+		}else{
+			ventana=confirm("Para descargar las respuestas debes estar conectado a internet. ¿Deseas continuar?");
+			if (ventana) {
+				cs600.submit();
+				window.parent.postMessage({ type: "set", name: "enviado", value: "1" }, '*');
+				window.parent.postMessage({ type: "update" }, '*');
+			}		
+		}
+}
+
+function isEmailAddress(email){
+	var s = email;
+	var filter=/^[A-Za-z][A-Za-z0-9_.]*@[A-Za-z0-9_.]+\.[A-Za-z0-9_.]+[A-za-z]$/;
+	if (s.length == 0 ) return false;
+	if (filter.test(s))
+		return true;
+	else
+		//alert("Ingrese una dirección de correo válida");
+		return false;
+}
+
+//-->
+</script>
+<link href="paraenvio.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<form action="https://proyectodescartes.org/competencias/materiales_didacticos/descarga.php" method="post" name="cs600" target="_self" id="cs600">
+  <table width="100%" border="0" align="center" cellpadding="6" cellspacing="6">
+    <tr> 
+      <td colspan="2" valign="top" bgcolor="#A7b7FF" class="recuadro"> <p align="center" class="titulo"> 
+          <input name="act" type="hidden" id="act" value="gafas">
+          <input name="unidad" type="hidden" id="unidad" value="Unidad  CS621  Gafas regulables">
+          Unidad CS621: Gafas regulables</p>
+        <p align="center"> 
+          <input name="alumno" type="text" id="alumno" value="Escribe tu nombre y apellidos" size="40">
+          &nbsp;
+          <input name="CS600" type="button" id="CS600" value="Descargar" onClick="javascript:validar();" >
+        </p></td>
+    </tr>
+    <tr> 
+      <td valign="top" class="textonormal"> <p><strong>1.</strong> &iquest;Por 
+          qu&eacute; es importante que el cristalino cambie de forma?</p>
+        <blockquote> 
+          <p align="left"><strong>1)</strong> Para facilitar la visi&oacute;n 
+            de objetos que tienen luminosidad diferente.</p>
+          <p align="left"><strong>2)</strong> Para facilitar la visi&oacute;n 
+            de objetos que tienen colores diferentes.</p>
+          <p align="left"><strong>3)</strong> Para facilitar la visi&oacute;n 
+            de objetos que est&aacute;n a distancias diferentes.</p>
+          <p align="left"><strong>4)</strong> Para facilitar la visi&oacute;n 
+            de objetos que tienen tama&ntilde;os diferentes.</p>
+        </blockquote>
+		
+      </td>
+      <td width="25%" align="center" valign="middle" bgcolor="#e0eaee" class="textonormal"> 
+        <p>RESPUESTA</p>
+        <p> 
+          <input name="rn1" type="text" class="titulo" id="rn1" size="1" >
+        </p>
+        <p> 
+          <input name="rc1" type="hidden" id="rc1">
+        </p>
+		</td>
+    </tr>
+    <tr> 
+      <td class="textonormal"> <p><strong>2. </strong>&iquest;C&oacute;mo afecta 
+          la adici&oacute;n de fluido a la forma de las gafas?</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Cuando se a&ntilde;ade fluido a una lente plana, 
+          los lados de la lente se curvan 
+          <input name="rn21" type="text" id="rn21" size="20" >
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;porque la fuerza neta ejercicda por el fluido 
+          sobre los lados de la lente es 
+          <input name="rn22" type="text" id="rn22" size="20" >
+        </p>
+		
+      </td>
+      <td width="25%" align="center" valign="middle" bgcolor="#e0eaee" class="textonormal"> 
+        <p> 
+          <input name="rc2" type="hidden" id="rc2">
+        </p></td>
+    </tr>
+    <tr valign="top"> 
+      <td class="textonormal"><p><strong>3. </strong>&iquest;C&oacute;mo afecta 
+          la regulaci&oacute;n de las gafas a la visi&oacute;n de Ana?</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;La adici&oacute;n de fluido hace que los objetos 
+          <input name="rn31" type="text" id="rn31" size="12" >
+          se vean desenfocados.</p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;La extracci&oacute;n de fluido de la lente 
+          hace que los objetos 
+          <input name="rn32" type="text" id="rn32" size="12" >
+          se vean desenfocados.</p>
+        
+      </td>
+      <td width="25%" align="center" valign="middle" bgcolor="#e0eaee" class="textonormal"> 
+        <p> 
+          <input name="rc3" type="hidden" id="rc3">
+        </p></td>
+    </tr>
+    <tr valign="top"> 
+      <td class="textonormal"> <p><strong>4.</strong> &iquest;Qu&eacute; ajustes 
+          necesitan las gafas de Daniel para que pueda ver enfocados los objetos 
+          cercanos?</p>
+        <blockquote> 
+          <p><strong>1)</strong> +2 &nbsp;A&ntilde;adir todo el fluido.</p>
+          <p><strong>2)</strong> +1 &nbsp;A&ntilde;adir un poco de fluido.</p>
+          <p> <strong>3)</strong> -1&nbsp;Extraer un poco de fluido.</p>
+          <p> <strong>4)</strong> -2 &nbsp;Extraer todo el fluido.</p>
+        </blockquote>
+		
+      </td>
+      <td width="25%" align="center" valign="middle" bgcolor="#e0eaee" class="textonormal"> 
+        <p>RESPUESTA</p>
+        <p> 
+          <input name="rn4" type="text" class="titulo" id="rn4" size="3" >
+        </p>
+        <p> 
+          <input name="rc4" type="hidden" id="rc4">
+        </p></td>
+    </tr>
+    <tr> 
+      <td class="textonormal"><p align="justify"><strong>5.</strong> &iquest;Qu&eacute; 
+          ajustes necesitan las gafas de Mar&iacute;a para que pueda ver los objetos 
+          enfocados a cualquiera de las tres distancias?</p>
+        <blockquote> 
+          <p><strong>1)</strong> +2 &nbsp;A&ntilde;adir todo el fluido.</p>
+          <p><strong>2)</strong> +1 &nbsp;A&ntilde;adir un poco de fluido.</p>
+          <p> <strong>3)</strong> -1&nbsp;Extraer un poco de fluido.</p>
+          <p> <strong>4)</strong> -2 &nbsp;Extraer todo el fluido.</p>
+        </blockquote>
+	  </td>
+      <td width="25%" align="center" valign="middle" bgcolor="#e0eaee" class="textonormal"> 
+        <p class="textonormal">RESPUESTA</p>
+        <p class="textonormal"> 
+          <input name="rn5" type="text" class="titulo" id="rn5" size="1" >
+        </p>
+        <p> 
+          <input name="rc5" type="hidden" id="rc5">
+        </p></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
